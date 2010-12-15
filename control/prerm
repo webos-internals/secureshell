@@ -1,0 +1,19 @@
+#!/bin/sh
+
+SID="org.webosinternals.secureshell"
+
+APPS=/media/cryptofs/apps
+
+[ -d $APPS ] || { echo "Requires webOS 1.3.5 or later" ; exit 1 ; }
+
+# Remove the daemon executable
+rm -f /var/usr/sbin/${SID}
+
+# Stop the daemon if running
+/sbin/stop ${SID} || true
+/usr/bin/killall -9 ${SID} || true
+
+# Remove the upstart script
+rm -f /var/palm/event.d/${SID}
+
+exit 0

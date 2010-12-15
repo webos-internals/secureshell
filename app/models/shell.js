@@ -1,28 +1,28 @@
 function shellHandler() {};
 
-shellHandler.prototype.newScene = function(assistant, name, popit)
+shellHandler.prototype.newScene = function(assistant, url, popit)
 {
     try {
-	var stageName = 'shell-' + name;
+	var stageName = 'shell-' + url;
 	var stageController = Mojo.Controller.appController.getStageController(stageName);
 		
-	if (stageController && stageController.activeScene().sceneName == name) {
+	if (stageController && stageController.activeScene().sceneName == url) {
 	    stageController.activate();
 	    return;
 	}
-	else if (stageController && stageController.activeScene().sceneName != name) {
+	else if (stageController && stageController.activeScene().sceneName != url) {
 	    stageController.popScenesTo('shell');
 	    stageController.activate();
 	    return;
 	}
 		
 	if (!popit) {
-	    assistant.controller.stageController.pushScene('shell', name, false);
+	    assistant.controller.stageController.pushScene('shell', url, false);
 	}
 	else {
 	    Mojo.Controller.appController.createStageWithCallback({
 		    name: stageName, lightweight: true},
-		this.newSceneCallback.bind(this, name, true));
+		this.newSceneCallback.bind(this, url, true));
 	}
     }
     catch (e) {
@@ -30,7 +30,7 @@ shellHandler.prototype.newScene = function(assistant, name, popit)
     }
 };
 
-shellHandler.prototype.newSceneCallback = function(name, popped, controller)
+shellHandler.prototype.newSceneCallback = function(url, popped, controller)
 {
-    controller.pushScene('shell', name, popped);
+    controller.pushScene('shell', url, popped);
 };

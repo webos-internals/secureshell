@@ -44,11 +44,13 @@ MainAssistant.prototype.setup = function()
     this.subTitleElement.innerHTML = this.getRandomSubTitle();
 
     this.mainModel.items = [ {
-	    name:	$L("Local Shell"),
-	    host:	'localhost',
+	    name:	$L("Browser Shell"),
+	    type:	'browser',
+	    url:	'http://localhost:4200/',
 	}, {
-	    name:	$L("Remote Shell"),
-	    host:	'remotehost',
+	    name:	$L("Embedded Shell"),
+	    type:	'embedded',
+	    url:	'http://localhost:4200/',
 	}];
 
     this.controller.setupWidget('mainList', {
@@ -60,7 +62,18 @@ MainAssistant.prototype.setup = function()
 
 MainAssistant.prototype.listTap = function(event)
 {
-    shell.newScene(this, event.item.host, prefs.get().popShells);
+    if (event.item.type == 'browser') {
+	this.controller.serviceRequest('palm://com.palm.applicationManager', {
+		method: 'open',
+		parameters: {
+		    id: 'com.palm.app.browser',
+		    params: { target: event.item.url }
+		}
+	    });
+    }
+    if (event.item.type == 'embedded') {
+	shell.newScene(this, event.item.url, prefs.get().popShells);
+    }
 };
 
 MainAssistant.prototype.getRandomSubTitle = function()

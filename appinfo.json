@@ -1,6 +1,6 @@
 {
 	"title": "Secure Shell",
-	"id": "org.webosinternals.weboshell",
+	"id": "org.webosinternals.secureshell",
 	"version": "0.0.1",
 	"release_date":	"15-December-2010",
 	"vendor": "WebOS Internals",

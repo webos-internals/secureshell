@@ -2,10 +2,10 @@ package: clean
 	palm-package .
 
 test: package
-	- palm-install -r org.webosinternals.weboshell
-	palm-install org.webosinternals.weboshell_*.ipk
-	palm-launch org.webosinternals.weboshell
+	- palm-install -r org.webosinternals.secureshell
+	palm-install org.webosinternals.secureshell_*.ipk
+	palm-launch org.webosinternals.secureshell
 
 clean:
 	find . -name '*~' -delete
-	rm -f ipkgtmp*.tar.gz org.webosinternals.weboshell_*.ipk
+	rm -f ipkgtmp*.tar.gz org.webosinternals.secureshell_*.ipk

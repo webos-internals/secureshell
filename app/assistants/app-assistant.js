@@ -5,7 +5,7 @@ var vers =  new versionCookie();
 var shell = new shellHandler();
 
 // stage names
-var mainStageName = 'weboshell-main';
+var mainStageName = 'secureshell-main';
 
 function AppAssistant() {}
 

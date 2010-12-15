@@ -1,4 +1,4 @@
-function ShellAssistant(name, popped) {
+function ShellAssistant(url, popped) {
     /* this is the creator function for your scene assistant object. It will be passed all the 
        additional parameters (after the scene name) that were passed to pushScene. The reference
        to the scene controller (this.controller) has not be established yet, so any initialization
@@ -10,7 +10,7 @@ function ShellAssistant(name, popped) {
 	items: []
     }
 	
-    this.name = name;
+    this.url = url;
     this.popped = popped;
 };
 
@@ -33,8 +33,16 @@ ShellAssistant.prototype.setup = function() {
     this.popButtonElement =	this.controller.get('popButton');
     this.popButtonPressed =	this.popButtonPressed.bindAsEventListener(this);
     
-    this.titleElement.update(this.name);
-    
+    this.titleElement.update(this.url);
+
+    this.controller.setupWidget("shell-body",
+				this.shellAttributes = {
+				    url: this.url
+				},
+				this.shellModel = {
+				}
+				); 
+
     if (this.popped) {
 	this.popButtonElement.style.display = 'none';
     }
@@ -45,7 +53,7 @@ ShellAssistant.prototype.setup = function() {
 
 ShellAssistant.prototype.popButtonPressed = function(event)
 {
-    shell.newScene(this, this.name, true);
+    shell.newScene(this, this.url, true);
     this.controller.stageController.popScene();
 }
 
