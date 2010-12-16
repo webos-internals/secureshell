@@ -2,8 +2,6 @@ description "Secure Shell Service"
 
 start on stopped finish
 
-script
-/var/usr/sbin/org.webosinternals.secureshell -t
-end script
+exec /var/usr/sbin/org.webosinternals.secureshell
 
 respawn
