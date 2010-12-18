@@ -3,7 +3,8 @@ function StartupAssistant(changelog)
     this.justChangelog = changelog;
 	
     // on first start, this message is displayed, along with the current version message from below
-    this.firstMessage = $L('Here are some tips for first-timers:<ul><li>Secure Shell has no tips yet</li></ul>');
+    this.firstMessage = $L('Secure Shell is very raw and barely functional. We know the bugs already, and they are major and fatal, so you do not need to report them. Thanks.');
+    //    this.firstMessage = $L('Here are some tips for first-timers:<ul><li>Secure Shell has no tips yet</li></ul>');
 	
     this.secondMessage = $L('We hope you enjoy accessing a secure shell on your webOS device.<br>Please consider making a <a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCSMTCCGMH5NA\">donation</a> if you wish to show your appreciation.<br><br>The latest additions and changes to Secure Shell are detailed in the section below:');
 	
@@ -11,6 +12,7 @@ function StartupAssistant(changelog)
     this.newMessages =
 	[
 	 // Don't forget the comma on all but the last entry
+	 { version: '0.0.3', log: [ 'Hacked away most of vt100.js key handling' ] },
 	 { version: '0.0.2', log: [ 'First semi-functional version' ] },
 	 { version: '0.0.1', log: [ 'Initial skeleton' ] }
 	];
