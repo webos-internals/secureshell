@@ -1,0 +1,14 @@
+{
+"id": "org.webosinternals.secureshell.service",
+"description": "Secure Shell",
+"services": [ {
+    "name": "org.webosinternals.secureshell.service",
+    "description": "Secure Shell",
+    "commands": [ { 
+            "name": "status", 
+            "assistant": "StatusAssistant",
+	    "public": true
+             },
+           ] 
+        }]
+}

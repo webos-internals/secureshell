@@ -1,5 +1,5 @@
 package: clean
-	palm-package .
+	palm-package package service .
 
 test: package
 	- palm-install -r org.webosinternals.secureshell
