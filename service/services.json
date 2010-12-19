@@ -8,7 +8,11 @@
             "name": "status", 
             "assistant": "StatusAssistant",
 	    "public": true
-             },
+             },{ 
+            "name": "command", 
+            "assistant": "CommandAssistant",
+	    "public": true
+             }
            ] 
         }]
 }

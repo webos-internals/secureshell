@@ -1,9 +1,6 @@
-[{
-    "library": {
-        "name": "foundations",
-        "version": "1.0"
-    }
-},
-{
-    "source": "StatusAssistant.js" 
-}]
+[
+{ "library": { "name": "foundations", "version": "1.0" } },
+{ "source": "StatusAssistant.js" },
+{ "source": "CommandAssistant.js" },
+{ "source": "prologue.js" }
+]
